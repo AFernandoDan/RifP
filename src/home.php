@@ -10,7 +10,6 @@ use Entity\Numero as Numero;
 
 $sorteos = $entityManager->getRepository("Entity\Sorteo")->findBy([]);
 
-
 ?>
 
 <!DOCTYPE html>
@@ -51,26 +50,36 @@ $sorteos = $entityManager->getRepository("Entity\Sorteo")->findBy([]);
     <!-- listando todos los sorteos -->
     <table>
         <tr>
-            <th>Nombre Sorteo</th> <th>Cantidad de numeros</th> <th>Estado</th>
+            <th>Nombre Sorteo</th> <th>Cantidad de numeros</th> <th>Estado</th> <th>Ganador</th>
         </tr>
             <?php
                 foreach ($sorteos as $sorteo) {
-                    
+
                     $nombre = $sorteo -> getNombre();
                     $cantidad_numeros = $sorteo -> getCantidadNumeros();
                     $id = $sorteo -> getId();
                     $estado = $sorteo -> getEstado();
+                    $ganador = "Sin ganador";
                     
-                    if ($estado == 1) {
-                        $estado = "Sorteado";
+                    if ($estado == true) {
+                        $estado_sorteo = "Sorteado";
+                        $ganador = $sorteo -> getGanador() -> getNumero();
                     }
                     else {
-                        $estado = "Sin sortear";
+                        $estado_sorteo = "Sin sortear";
                     }
             ?>
                   
         <tr>
-            <td><?php echo $nombre; ?></td> <td><?php echo $cantidad_numeros; ?></td> <td><?php echo $estado; ?></td>
+            <td><?php echo $nombre; ?></td> <td><?php echo $cantidad_numeros; ?></td> <td><?php echo $estado_sorteo; ?></td> <td><?php echo $ganador; ?></td>
+            <?php if ($estado == false) { ?>
+                    <td>
+                        <form action="sortear.php" method="post">
+                            <input type="hidden" name="id_sorteo" value="<?php echo $id;?>">
+                            <button type="submit">Sortear</button>
+                        </form>
+                    </td>
+            <?php } ?>
             <td>
                 <form action="eliminar_sorteo.php" method="post">
                     <input type="hidden" name="id_sorteo" value="<?php echo $id;?>">

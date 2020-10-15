@@ -14,6 +14,9 @@ $sorteo = $entityManager->getRepository("Entity\Sorteo")->findOneBy(["id"=>$id_s
 //obteniendo todos los numeros del sorteo a eliminar
 $numeros = $entityManager->getRepository("Entity\Numero")->findBy(["id_sorteo"=>$sorteo]);
 
+$sorteo -> setGanador(NULL);
+$sorteo -> setEstado(false);
+
 //eliminando todos los numeros del sorteo
 foreach ($numeros as $numero) {
     $entityManager->remove($numero);
