@@ -1,25 +1,22 @@
 <?php
 
-require "..\bootstrap.php";
-
-require "..\Entity\Sorteo.php";
-require "..\Entity\Numero.php";
+include 'main.php';
 
 use Entity\Sorteo as Sorteo;
 use Entity\Numero as Numero;
 
-$nombre = $_POST ["nombre"];
+$nombre_sorteo = $_POST ["nombre"];
 $numeros = $_POST ["numeros"];
 
 //obteniendo todos los sorteos
-$sorteos = $entityManager->getRepository("Entity\Sorteo")->findBy(["nombre"=>$nombre]);
+$sorteo = getSorteoPorNombre($nombre_sorteo);
 
 //comprobando que el sorteo no exista
-if (count($sorteos) == 0) {
+if (!isset($sorteo)) {
      
     //creando el sorteo
     $nuevoSorteo = new Sorteo();
-    $nuevoSorteo->setNombre($nombre);
+    $nuevoSorteo->setNombre($nombre_sorteo);
     $nuevoSorteo->setCantidadNumeros($numeros);
     $nuevoSorteo->setEstado(0);
 

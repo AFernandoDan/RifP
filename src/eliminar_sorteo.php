@@ -1,18 +1,15 @@
 <?php
 
-require "..\bootstrap.php";
-
-require "..\Entity\Sorteo.php";
-require "..\Entity\Numero.php";
+include 'main.php';
 
 //obteniendo el id del sorteo que se quiere eliminar
 $id_sorteo = $_POST ["id_sorteo"];
 
 //buscando el sorteo que se va a eliminar
-$sorteo = $entityManager->getRepository("Entity\Sorteo")->findOneBy(["id"=>$id_sorteo]);
+$sorteo = getSorteoPorId($id_sorteo);
 
 //obteniendo todos los numeros del sorteo a eliminar
-$numeros = $entityManager->getRepository("Entity\Numero")->findBy(["id_sorteo"=>$sorteo]);
+$numeros = getNumerosPorSorteo($sorteo);
 
 $sorteo -> setGanador(NULL);
 $sorteo -> setEstado(false);

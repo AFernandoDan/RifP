@@ -239,4 +239,9 @@ class Numero {
     {
         return $this->estado_responsable;
     }
+    
+    public function tieneResponsable()
+    {
+        return $this->estado_responsable == true;
+    }
 }

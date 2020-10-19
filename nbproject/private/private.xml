@@ -5,10 +5,16 @@
         <group>
             <file>file:/E:/xampp/htdocs/RifP/src/home.php</file>
             <file>file:/E:/xampp/htdocs/RifP/src/eliminar_sorteo.php</file>
+            <file>file:/E:/xampp/htdocs/RifP/src/main.php</file>
             <file>file:/E:/xampp/htdocs/RifP/src/asignar_dueño.php</file>
+            <file>file:/E:/xampp/htdocs/RifP/src/quitar_responsable.php</file>
             <file>file:/E:/xampp/htdocs/RifP/src/prueba.php</file>
+            <file>file:/E:/xampp/htdocs/RifP/src/ver_numeros.php</file>
             <file>file:/E:/xampp/htdocs/RifP/src/sortear.php</file>
+            <file>file:/E:/xampp/htdocs/RifP/src/quitar_dueño.php</file>
+            <file>file:/E:/xampp/htdocs/RifP/src/asignar_responsable.php</file>
             <file>file:/E:/xampp/htdocs/RifP/src/crear_sorteo.php</file>
+            <file>file:/E:/xampp/htdocs/RifP/bootstrap.php</file>
         </group>
     </open-files>
 </project-private>

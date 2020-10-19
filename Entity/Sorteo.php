@@ -170,4 +170,9 @@ class Sorteo {
     {
         return $this->id_numero;
     }
+    
+    public function estaSorteado()
+    {
+        return $this->estado == true;
+    }
 }

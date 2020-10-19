@@ -345,4 +345,15 @@ class Numero extends \Entity\Numero implements \Doctrine\ORM\Proxy\Proxy
         return parent::getEstadoResponsable();
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    public function tieneResponsable()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'tieneResponsable', []);
+
+        return parent::tieneResponsable();
+    }
+
 }

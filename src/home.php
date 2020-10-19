@@ -1,14 +1,8 @@
 <?php
 
-require "..\bootstrap.php";
+include 'main.php';
 
-require "..\Entity\Sorteo.php";
-require "..\Entity\Numero.php";
-
-use Entity\Sorteo as Sorteo;
-use Entity\Numero as Numero;
-
-$sorteos = $entityManager->getRepository("Entity\Sorteo")->findBy([]);
+$sorteos = getSorteos();
 
 ?>
 

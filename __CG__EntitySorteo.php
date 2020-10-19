@@ -301,4 +301,15 @@ class Sorteo extends \Entity\Sorteo implements \Doctrine\ORM\Proxy\Proxy
         return parent::getIdNumero();
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    public function estaSorteado()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'estaSorteado', []);
+
+        return parent::estaSorteado();
+    }
+
 }
