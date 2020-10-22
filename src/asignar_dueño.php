@@ -7,11 +7,9 @@ $id_numero = $_POST ["id_numero"];
 
 $sorteos = getSorteos();
 
-//obteniendo todos los numeros del sorteo a eliminar
 $numero = getNumeroPorId($id_numero);
 
-$numero->setDueño($nuevo_dueño);
-$numero->setEstadoDueño(true);
+$numero->asignarDueño($nuevo_dueño);
 $entityManager->flush();
 
 ?>

@@ -10,11 +10,8 @@ $sorteos = getSorteos();
 //obteniendo todos los numeros del sorteo a eliminar
 $numero = getNumeroPorId($id_numero);
 
-$numero->setResponsable($nuevo_responsable);
-$numero->setEstadoResponsable(true);
+$numero->asignarResponsable($nuevo_responsable);
 $entityManager->flush();
 
 ?>
 <script>history.back();</script>
-
-

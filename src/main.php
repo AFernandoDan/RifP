@@ -45,7 +45,7 @@ function getNumerosPorSorteo($sorteo) {
 
 function getSorteoPorNombre($nombre_sorteo) {
     
-    $sorteo = $GLOBALS['entityManager']->getRepository("Entity\Sorteo")->findOneBy(["id"=>$nombre_sorteo]);
+    $sorteo = $GLOBALS['entityManager']->getRepository("Entity\Sorteo")->findOneBy(["nombre"=>$nombre_sorteo]);
     
     return $sorteo;
     
@@ -59,4 +59,26 @@ function getNumerosVendidosPorSorteo($id_sorteo) {
     
     return $numeros;
     
+}
+
+function eliminarSorteo($id_sorteo) {
+    
+    $sorteo = getSorteoPorId($id_sorteo);
+
+    //obteniendo todos los numeros del sorteo a eliminar
+    $numeros = getNumerosPorSorteo($sorteo);
+    echo"hola";
+
+    $sorteo -> setGanador(NULL);
+    $sorteo -> setEstado(false);
+
+    //eliminando todos los numeros del sorteo
+    foreach ($numeros as $numero) {
+        $GLOBALS['entityManager']->remove($numero);
+        $GLOBALS['entityManager']->flush();
+    }
+
+    //eliminando el sorteo
+    $GLOBALS['entityManager']->remove($sorteo);
+    $GLOBALS['entityManager']->flush();
 }

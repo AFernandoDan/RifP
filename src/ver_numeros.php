@@ -25,7 +25,7 @@ function mostrar_numeros($numeros){
             <td><?php echo $responsable; ?></td>
             <td>
                 <form action="asignar_dueño.php" method="post">
-                    <input type="input" name="nuevo_dueño">
+                    <input type="input" name="nuevo_dueño" required>
                     <input type="hidden" name="id_numero" value="<?php echo $id;?>">
                     <button type="submit">Asignar dueño</button>
                 </form>
@@ -38,7 +38,7 @@ function mostrar_numeros($numeros){
             </td>
                         <td>
                 <form action="asignar_responsable.php" method="post">
-                    <input type="input" name="nuevo_responsable">
+                    <input type="input" name="nuevo_responsable" required>
                     <input type="hidden" name="id_numero" value="<?php echo $id;?>">
                     <button type="submit">Asignar responsable</button>
                 </form>

@@ -40,6 +40,12 @@ class Sorteo {
      * @OneToOne(targetEntity="Numero")
      **/
     private $ganador;
+    
+    public function __construct($nombre_sorteo,$cantidad_numeros) {
+        $this->nombre = $nombre_sorteo;
+        $this->cantidad_numeros = $cantidad_numeros;
+        $this->estado = 0;
+    }
 
     /**
      * Get id.

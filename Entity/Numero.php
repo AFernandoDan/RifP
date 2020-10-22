@@ -2,7 +2,6 @@
 
 namespace Entity;    
 
-
 /**
 * @Entity
 *
@@ -243,5 +242,21 @@ class Numero {
     public function tieneResponsable()
     {
         return $this->estado_responsable == true;
+    }
+    
+    public function asignarDueño($nuevo_dueño)
+    {
+        $this->setDueño($nuevo_dueño);
+        $this->setEstadoDueño(true);
+        
+        return $this;
+    }
+    
+    public function asignarResponsable($nuevo_responsable)
+    {
+        $this->setResponsable($nuevo_responsable);
+        $this->setEstadoDueño(true);
+        
+        return $this;
     }
 }

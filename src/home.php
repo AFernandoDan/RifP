@@ -2,6 +2,12 @@
 
 include 'main.php';
 
+if (isset($_POST ["id_sorteo_eliminar"])) {
+    
+    $id_sorteo_eliminar = $_POST ["id_sorteo_eliminar"];
+    eliminarSorteo($id_sorteo_eliminar);
+}
+
 $sorteos = getSorteos();
 
 ?>
@@ -19,9 +25,9 @@ $sorteos = getSorteos();
 
     <form action="crear_sorteo.php" method="POST">
         <label for="fname">Nombre:</label>
-        <input type="text" name="nombre">
+        <input type="text" name="nombre" required>
         <label for="lname">Cantidad de numeros:</label>
-        <input type="text" name="numeros">
+        <input type="text" name="numeros" required>
         <input type="submit" value="Crear sorteo">
     </form>
 
@@ -75,8 +81,8 @@ $sorteos = getSorteos();
                     </td>
             <?php } ?>
             <td>
-                <form action="eliminar_sorteo.php" method="post">
-                    <input type="hidden" name="id_sorteo" value="<?php echo $id;?>">
+                <form action="home.php" method="post">
+                    <input type="hidden" name="id_sorteo_eliminar" value="<?php echo $id;?>">
                     <button type="submit">Eliminar</button>
                 </form>
             </td>
