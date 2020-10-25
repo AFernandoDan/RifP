@@ -1,16 +1,21 @@
 <?php
 
-require "..\bootstrap.php";
+include 'main.php';
 
-require "..\Entity\Sorteo.php";
-require "..\Entity\Numero.php";
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
-//obteniendo todos los sorteos
-$sorteo = $entityManager->getRepository("Entity\Sorteo")->findOneBy(["id"=>2]);
+$encoders = [new XmlEncoder(), new JsonEncoder()];
+$normalizers = [new ObjectNormalizer()];
 
-//comprobando que el sorteo no exista
-if (isset($sorteo)) {
-    $sorteo -> setGanador(NULL);
-    $sorteo -> setEstado(false);
-    $entityManager -> flush();
-}
+$serializer = new Serializer($normalizers, $encoders);
+
+$sorteos = getSorteos();
+
+$jsonContent = $serializer->serialize($sorteos, 'json');
+
+echo $jsonContent;
+
+?>

@@ -282,28 +282,6 @@ class Sorteo extends \Entity\Sorteo implements \Doctrine\ORM\Proxy\Proxy
     /**
      * {@inheritDoc}
      */
-    public function setIdNumero(\Entity\Numero $idNumero = NULL)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setIdNumero', [$idNumero]);
-
-        return parent::setIdNumero($idNumero);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getIdNumero()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getIdNumero', []);
-
-        return parent::getIdNumero();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
     public function estaSorteado()
     {
 

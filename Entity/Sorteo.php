@@ -152,30 +152,6 @@ class Sorteo {
     {
         return $this->ganador;
     }
-
-    /**
-     * Set idNumero.
-     *
-     * @param \Entity\Numero|null $idNumero
-     *
-     * @return Sorteo
-     */
-    public function setIdNumero(\Entity\Numero $idNumero = null)
-    {
-        $this->id_numero = $idNumero;
-
-        return $this;
-    }
-
-    /**
-     * Get idNumero.
-     *
-     * @return \Entity\Numero|null
-     */
-    public function getIdNumero()
-    {
-        return $this->id_numero;
-    }
     
     public function estaSorteado()
     {

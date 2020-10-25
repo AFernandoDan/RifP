@@ -54,9 +54,12 @@ final class Versions
   'symfony/polyfill-mbstring' => 'v1.18.1@a6977d63bf9a0ad4c65cd352709e230876f9904a',
   'symfony/polyfill-php73' => 'v1.18.1@fffa1a52a023e782cdcc221d781fe1ec8f87fcca',
   'symfony/polyfill-php80' => 'v1.18.1@d87d5766cbf48d72388a9f6b85f280c8ad51f981',
+  'symfony/property-access' => 'v5.1.7@4c43f7ff784e1e3ee1c96e15f76b342af6617b39',
+  'symfony/property-info' => 'v5.1.7@22518930091e0bdb249694efc509e3697f7e325e',
+  'symfony/serializer' => 'v5.1.7@6b673b802dabd2bcf7cab05d04d2d8ef8891b952',
   'symfony/service-contracts' => 'v2.2.0@d15da7ba4957ffb8f1747218be9e1a121fd298a1',
   'symfony/string' => 'v5.1.7@4a9afe9d07bac506f75bcee8ed3ce76da5a9343e',
-  '__root__' => 'No version set (parsed as 1.0.0)@',
+  '__root__' => 'dev-dev-refactor@a0045fef62a542219ed6d0d695139e440ded77c3',
 );
 
     private function __construct()

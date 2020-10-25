@@ -356,4 +356,26 @@ class Numero extends \Entity\Numero implements \Doctrine\ORM\Proxy\Proxy
         return parent::tieneResponsable();
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    public function asignarDueño($nuevo_dueño)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'asignarDueño', [$nuevo_dueño]);
+
+        return parent::asignarDueño($nuevo_dueño);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function asignarResponsable($nuevo_responsable)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'asignarResponsable', [$nuevo_responsable]);
+
+        return parent::asignarResponsable($nuevo_responsable);
+    }
+
 }
