@@ -13,7 +13,7 @@ $dbParams = array(
     'driver'   => 'pdo_mysql',
     'user'     => 'root',
     'password' => '',
-    'dbname'   => 'pruebaboots',
+    'dbname'   => 'RifP',
 );
 
 $config = Setup::createAnnotationMetadataConfiguration($paths, $isDevMode);

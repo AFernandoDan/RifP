@@ -15,13 +15,16 @@ global $entityManager;
 
 
 $rifa = getRifaPorNombre("bien");
+
+if ($rifa == null) {
+ $rifa = crearRifa("bien",1);
+}
+
 $boleto = $rifa->getBoletos()[0];
 $boleto->asignarResponsable("responsable");
 $boleto->asignarDueno("dueno");
 $rifa->sortear();
 
 $id = $rifa->getId();
-
-
 
 ?>
