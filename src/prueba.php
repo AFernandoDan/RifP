@@ -1,21 +1,27 @@
 <?php
 
-include 'main.php';
+require 'repositorios.php';
 
-use Symfony\Component\Serializer\Encoder\JsonEncoder;
-use Symfony\Component\Serializer\Encoder\XmlEncoder;
-use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
-use Symfony\Component\Serializer\Serializer;
+require 'crear_rifa.php';
 
-$encoders = [new XmlEncoder(), new JsonEncoder()];
-$normalizers = [new ObjectNormalizer()];
+require 'eliminar_rifa.php';
 
-$serializer = new Serializer($normalizers, $encoders);
+require 'getters.php';
 
-$sorteos = getSorteos();
+require 'validaciones.php';
 
-$jsonContent = $serializer->serialize($sorteos, 'json');
+global $entityManager;
 
-echo $jsonContent;
+
+
+$rifa = getRifaPorNombre("bien");
+$boleto = $rifa->getBoletos()[0];
+$boleto->asignarResponsable("responsable");
+$boleto->asignarDueno("dueno");
+$rifa->sortear();
+
+$id = $rifa->getId();
+
+
 
 ?>
