@@ -1,5 +1,8 @@
 <?php
 
+Use Entity\Rifa;
+Use Entity\Boleto;
+
 global $entityManager;
 
 function getRifas(){
