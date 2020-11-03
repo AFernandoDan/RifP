@@ -16,6 +16,8 @@ function eliminarRifa($id_rifa) {
         $GLOBALS['entityManager']->remove($rifa);
         $GLOBALS['entityManager']->flush();
 
+        echo "Se elimino la rifa: ".$rifa->getNombre();
+
     }else{
         echo "No existe una rifa con el id: ".$id_rifa;
     }
