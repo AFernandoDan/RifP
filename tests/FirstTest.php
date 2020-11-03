@@ -15,12 +15,12 @@
     
     require 'src/validaciones.php';
     
-    
     Class FirstTest extends TestCase
     {
         public function testSum()
         {
-            $rifa = getRifaPorNombre("asdasaaadasd");
+            //$rifa = crearRifa("rifatest1",1);
+            $rifa = getRifaPorNombre("rifatest1");
             $this->assertInstanceOf(Rifa::class,$rifa);
 
             $boleto = $rifa->getBoletos()[0];

@@ -84,7 +84,7 @@ final class Versions
   'sebastian/version' => '3.0.2@c6c1022351a901512170118436c764e473f6de8c',
   'theseer/tokenizer' => '1.2.0@75a63c33a8577608444246075ea0af0d052e452a',
   'webmozart/assert' => '1.9.1@bafc69caeb4d49c39fd0779086c03a3738cbb389',
-  '__root__' => '1.0.0+no-version-set@',
+  '__root__' => 'dev-dev-refactor@3f3dec1f81948cb91ecdd45b82f56e70dfe71713',
 );
 
     private function __construct()
