@@ -15,14 +15,34 @@
 </head>
 <body>
 
-    <!-- Image and text -->
+    <!-- Barra superior con logo y nombre de la aplicación -->
     <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand" href="#">
-        <img src="public/img/test.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        <img src="public/img/test.png" width="30" height="30" class="d-inline-block align-top" alt="Logo de RifP">
         RifP
-    </a>
+        </a>
     </nav>
 
+    <!-- Formulario para crear rifa -->
+    <div style="padding-left: 12px;">
+      <form>
+        <div class="form-row align-items-center">
+          <div class="col-sm-3 my-1">
+            <label>Nombre de la rifa</label>
+            <input type="text" class="form-control" id="inlineFormInputName" placeholder="Rifa 2020">
+          </div>
+          <div class="col-sm-3 my-1">
+            <label>Cantidad de boletos</label>
+            <input type="number" min="1" max="300" class="form-control" id="inlineFormInputName" placeholder="1">
+          </div>
+          <div class="col-auto my-1" style="padding-top: 31px;">
+            <button type="submit" class="btn btn-success">Crear</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Listado de rifas con nombre, cantidad de boletos y boleto ganador -->
     <table class="table">
         <thead>
           <tr>
