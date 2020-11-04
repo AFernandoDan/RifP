@@ -42,7 +42,6 @@ function validarNumero($numero){
     }
     
     if ($numero >= 300) {
-        echo "aspodkasopkdkopasdopasokpdopkasdpokaspodkapoksdpkoasdpokaokpsdkop";
     	$error = "El numero de boletos debe ser menor o igual a 300";
     	return $error;
     }
