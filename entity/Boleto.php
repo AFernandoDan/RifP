@@ -61,6 +61,11 @@ class Boleto {
 
     function asignarResponsable($nombre_responsable) {
 
+        if ($this->getIdRifa()->estaSorteada()) {
+            echo "No se puede modificar el boleto porque pertenece a una rifa ya sorteada";
+            return null;
+        }
+
         $validacion_nombre = validarNombre($nombre_responsable);
 
         if ($validacion_nombre != null) {
@@ -73,6 +78,11 @@ class Boleto {
     }
 
     function quitarResponsable() {
+
+        if ($this->getIdRifa()->estaSorteada()) {
+            echo "No se puede modificar el boleto porque pertenece a una rifa ya sorteada";
+            return null;
+        }
 
         $estado_dueno = $this->estado_dueno;
 
@@ -102,6 +112,11 @@ class Boleto {
 
     function asignarDueno($nombre_dueno) {
 
+        if ($this->getIdRifa()->estaSorteada()) {
+            echo "No se puede modificar el boleto porque pertenece a una rifa ya sorteada";
+            return null;
+        }
+
         $validacion_nombre = validarNombre($nombre_dueno);
 
         if ($validacion_nombre != null) {
@@ -126,6 +141,11 @@ class Boleto {
     }
 
     function quitarDueno() {
+
+        if ($this->getIdRifa()->estaSorteada()) {
+            echo "No se puede modificar el boleto porque pertenece a una rifa ya sorteada";
+            return null;
+        }
 
         $estado_dueno = $this->estado_dueno;
     

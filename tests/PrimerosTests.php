@@ -57,7 +57,7 @@
             
         }
 
-        public function testCrearRifa()
+        public function testCrearRifaConValoresValidos()
         {
             $rifa = crearRifa("rifatest",1);
             $this->assertInstanceOf(Rifa::class,$rifa);
@@ -83,6 +83,132 @@
             foreach ($boletos as $boleto) {
                 $this->assertInstanceOf(Boleto::class,$boleto);
             }
+        }
+
+        public function testAsignandoResponsableYDuenoALosBoletosDeUnaRifa()
+        {
+            $rifa = getRifaPorNombre("rifatest");
+            
+            $boletos = $rifa->getBoletos();
+
+            foreach ($boletos as $boleto) {
+                // asignando nombre al responsable del boleto
+                $boleto->asignarResponsable("nombre responsable");
+
+                // comprobando que el nombre se haya asignado correctamente al responsable
+                $this->assertEquals("nombre responsable",$boleto->getResponsable());
+
+                $boleto->asignarDueno("nombre dueno");
+
+                // comprobando que el nombre se haya asignado correctamente al dueno
+                $this->assertEquals("nombre dueno",$boleto->getDueno());
+
+            }
+
+        }
+
+        public function testQuitandoResponsableYDuenoALosBoletosDeUnaRifa()
+        {
+            $rifa = getRifaPorNombre("rifatest");
+            
+            $boletos = $rifa->getBoletos();
+
+            foreach ($boletos as $boleto) {
+
+                // quitando nombre al dueno del boleto
+                $boleto->quitarDueno();
+
+                // comprobando que el nombre se haya quitado correctamente al dueno
+                $this->assertEquals(null,$boleto->getDueno());
+
+                // quitando nombre al responsable del boleto
+                $boleto->quitarResponsable();
+
+                // comprobando que el nombre se haya quitado correctamente al responsable
+                $this->assertEquals(null,$boleto->getResponsable());
+
+            }
+
+        }
+
+        public function testIntentandoObtenerUnaRifaPorNombreUnaRifaQueNoExiste(){
+            $rifa_inexistente = getRifaPorNombre("soy una rifa que no existe");
+            $this->assertNotInstanceOf(Rifa::class,$rifa_inexistente);
+
+        }
+
+        public function testIntentandoSortearUnaRifaSinBoletosVendidos(){
+
+            // obteniendo la rifa con el nombre "rifatest"
+            $rifa = getRifaPorNombre("rifatest");
+
+            $rifa->sortear();
+            
+            // comprobando que la rifa no se haya sorteado
+            $this->assertEquals(false,$rifa->estaSorteada());
+
+        }
+
+        public function testIntentandoSortearUnaRifaSinBoletosVendidosPeroConResponsablesAsignados(){
+
+            // obteniendo la rifa con el nombre "rifatest"
+            $rifa = getRifaPorNombre("rifatest");
+
+            $boletos = $rifa->getBoletos();
+
+            foreach ($boletos as $boleto) {
+                // asignando nombre al responsable del boleto
+                $boleto->asignarResponsable("nombre responsable");
+
+                // comprobando que el nombre se haya asignado correctamente
+                $this->assertEquals("nombre responsable",$boleto->getResponsable());
+            }
+
+            $rifa->sortear();
+            
+            // comprobando que la rifa no se haya sorteado
+            $this->assertEquals(false,$rifa->estaSorteada());
+            
+        }
+
+        public function testIntentandoObtenerElBoletoGanadorDeUnaRifaSinSortear()
+        {
+            $rifa = getRifaPorNombre("rifatest");
+
+            $boleto_ganador = $rifa->getBoletoGanador();
+
+            $this->assertEquals(null, $boleto_ganador);
+        }
+
+        public function testAsignandoDuenosALosBoletosDeUnaRifaYSorteandola(){
+
+            // obteniendo la rifa con el nombre "rifatest"
+            $rifa = getRifaPorNombre("rifatest");
+
+            $boletos = $rifa->getBoletos();
+
+            foreach ($boletos as $boleto) {
+                // asignando nombre al responsable del boleto
+                $boleto->asignarDueno("nombre dueno");
+
+                // comprobando que el nombre se haya asignado correctamente
+                $this->assertEquals("nombre dueno",$boleto->getDueno());
+            }
+
+            $rifa->sortear();
+            
+            // comprobando que la rifa no se haya sorteado
+            $this->assertEquals(true,$rifa->estaSorteada());
+            
+        }
+
+        public function testObteniendoElBoletoGanadorDeUnaRifaSorteada()
+        {
+            $rifa = getRifaPorNombre("rifatest");
+
+            $boleto_ganador = $rifa->getBoletoGanador();
+
+            $this->assertInstanceOf(Boleto::class,$boleto_ganador);
         }
         
         public function testEliminarRifa()
