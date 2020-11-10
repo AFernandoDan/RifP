@@ -15,6 +15,7 @@ require 'src/validaciones.php';
 
 require 'public/gui/listar_rifas.php';
 
+comprobarSortear();
 comprobarEliminar();
 comprobarCrear();
 

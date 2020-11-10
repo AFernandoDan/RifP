@@ -44,25 +44,27 @@ class Rifa {
 
     function sortear() {
     
-        if (!$this->estaSorteada()) {
-
-            $boletos_vendidos = $this->getBoletosVendidos();
-    
-            if (count($boletos_vendidos) >= 1) {
-
-                $boleto_ganador = $boletos_vendidos[array_rand($boletos_vendidos)];
-
-                $this->estado = true;
-
-                $boleto_ganador->setEsGanador(true);
-
-                $GLOBALS['entityManager']->flush();
-            }
-            else {
-                // HACER -> error no hay numeros vendidos
-            }
-
+        if ($this->estaSorteada()) {
+            echo "La rifa no se pudo sortear porque ya ha sido sorteada";
+            return null;
         }
+
+        $boletos_vendidos = $this->getBoletosVendidos();
+
+        if (count($boletos_vendidos) < 1) {
+            echo "La rifa no se pudo sortear ya que no tiene boletos vendidos";
+            return null;
+        }
+
+        $boleto_ganador = $boletos_vendidos[array_rand($boletos_vendidos)];
+
+        $this->estado = true;
+
+        $boleto_ganador->setEsGanador(true);
+
+        $GLOBALS['entityManager']->flush();
+
+        echo "La rifa ha sido sorteada";
 
     }
 

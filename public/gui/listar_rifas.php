@@ -1,5 +1,14 @@
 <?php
 
+function comprobarSortear() {
+  if (isset($_POST["sortearRifaId"])) {
+
+      $id_rifa = $_POST["sortearRifaId"];
+      getRifaPorId($id_rifa)->sortear();
+
+  }
+}
+
 function comprobarEliminar() {
     if (isset($_POST["eliminarRifaId"])) {
 
