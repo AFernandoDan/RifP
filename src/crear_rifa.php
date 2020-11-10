@@ -24,7 +24,8 @@ function crearRifa($nombre, $cantidad_boletos) {
     }
 
     if ($validacion_cantidad_boletos != null) {
-        return $validacion_cantidad_boletos;
+        echo $validacion_cantidad_boletos;
+        return null;
     }
 
     //crear rifa

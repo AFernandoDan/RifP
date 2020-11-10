@@ -36,9 +36,13 @@ function validarNombre($nombre){
 function validarNumero($numero){
     $error;
     
-    if (!is_int($numero)) {
-    	$error = "El numero de boletos ingresado no es un numero entero";
+    if (!is_numeric($numero)) {
+    	$error = "El numero de boletos ingresado no es un valor numerico";
     	return $error;
+    }
+
+    if (is_string($numero)) {
+        $numero = intval($numero);
     }
     
     if ($numero >= 300) {

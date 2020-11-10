@@ -44,7 +44,7 @@
             $this->assertNotInstanceOf(Rifa::class,$rifa);
 
             // creando rifa con un numero de boletos no entero
-            $rifa = crearRifa("Rifa de prueba","esto no tiene que funcionar");
+            $rifa = crearRifa("Rifa de prueba","esto no tiene que funcionar","hola");
             $this->assertNotInstanceOf(Rifa::class,$rifa);
 
             // creando rifa con un numero de boletos mayor a 299
