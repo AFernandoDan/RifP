@@ -1,6 +1,5 @@
 <?php
 
-//EntityManager y conexion a base de datos
 require_once '../RifP/bootstrap.php';
 
 //clases

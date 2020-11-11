@@ -1,8 +1,5 @@
 <?php
 
-require_once '../RifP/entity/Rifa.php';
-require_once '../RifP/entity/Boleto.php';
-
 global $entityManager;
 
 function rifasRepository(){

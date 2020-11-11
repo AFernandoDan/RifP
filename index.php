@@ -1,5 +1,11 @@
 <?php
 
+//EntityManager y conexion a base de datos
+require_once '../RifP/bootstrap.php';
+
+require_once '../RifP/entity/Rifa.php';
+require_once '../RifP/entity/Boleto.php';
+
 Use Entity\Rifa;
 Use Entity\Boleto;
 
