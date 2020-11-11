@@ -1,3 +1,25 @@
+<?php
+
+Use Entity\Rifa;
+Use Entity\Boleto;
+
+require 'src/repositorios.php';
+
+require 'src/crear_rifa.php';
+
+require 'src/eliminar_rifa.php';
+
+require 'src/getters.php';
+
+require 'src/validaciones.php';
+
+require 'public/gui/listar_boletos.php';
+
+comprobarQuitarDueno();
+comprobarQuitarResponsable();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,25 +48,14 @@
     <table class="table">
         <thead>
           <tr>
-            <th scope="col">Numero</th>
+            <th scope="col"><b>#</b></th>
             <th scope="col">Dueño</th>
             <th scope="col">Responsable</th>
+            <th scope="col"></th> <!-- Esta linea de aca es para crear una columna invisible -->
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdasdasdasdasdasdasdo</td>
-            <td>
-              <button type="button" class="btn btn-secondary" >Quitar Dueño</button>
-              <button type="button" class="btn btn-success" >Asignar Dueño</button>
-              
-              
-              <button type="button" class="btn btn-secondary" >Quitar Responsable</button>
-              <button type="button" class="btn btn-primary" >Asignar Responsable</button>
-            </td>
-          </tr>
+          <?php listarBoletos(); ?>
         </tbody>
       </table>
     
