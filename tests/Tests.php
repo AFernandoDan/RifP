@@ -131,7 +131,7 @@
 
         }
 
-        public function testIntentandoObtenerUnaRifaPorNombreUnaRifaQueNoExiste(){
+        public function testIntentandoObtenerUnaRifaPorNombreDeUnaRifaQueNoExiste(){
             $rifa_inexistente = getRifaPorNombre("soy una rifa que no existe");
             $this->assertNotInstanceOf(Rifa::class,$rifa_inexistente);
 

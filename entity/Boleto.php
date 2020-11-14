@@ -88,10 +88,7 @@ class Boleto {
 
         $estado_responsable = $this->getEstadoResponsable();
 
-        $this->setResponsable(null);
-
         if ($estado_dueno == true) {
-
             $this->setEstadoDueno(false);
             $this->setDueno(null);
 
@@ -152,7 +149,7 @@ class Boleto {
         if ($estado_dueno == true) {
 
             $this->setEstadoDueno(false);
-            $this->setDueno("");
+            $this->setDueno(null);
 
         }
 

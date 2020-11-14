@@ -1,25 +1,5 @@
 <?php
 
-function comprobarQuitarDueno(){
-    if (isset($_POST["quitarDuenoBoletoId"])) {
-    
-        $id_boleto = $_POST["quitarDuenoBoletoId"];
-        $boleto = getBoletoPorId($id_boleto);
-        $boleto->quitarDueno();
-    
-    }
-}
-
-function comprobarQuitarResponsable(){
-    if (isset($_POST["quitarResponsableBoletoId"])) {
-    
-        $id_boleto = $_POST["quitarResponsableBoletoId"];
-        $boleto = getBoletoPorId($id_boleto);
-        $boleto->quitarResponsable();
-    
-    }
-}
-
 function listarBoletos() {
 
     if (isset($_POST["verBoletosRifaId"])) {
@@ -82,19 +62,23 @@ function mostrarBoleto($id, $numero, $dueno, $responsable, $id_rifa) { ?>
 
         <!-- Quitar dueño -->
         <button type="submit" class="btn btn-secondary" data-toggle="modal" data-target="#quitarDueno">
-            Quitar Dueño
+          Quitar Dueño
         </button>
 
         <!-- Asignar dueño -->
-        <button type="button" class="btn btn-success" >Asignar Dueño</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#asignarDue">
+            Asignar dueño
+        </button>
               
         <!-- Quitar responsable -->
         <button type="submit" class="btn btn-secondary" data-toggle="modal" data-target="#quitarResponsable">
-            Quitar Responsable
+          Quitar Responsable
         </button>
 
         <!-- Asignar responsable -->
-        <button type="button" class="btn btn-primary" >Asignar Responsable</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#asignarRes">
+            Asignar responsable
+        </button>
 
     </td>
 
@@ -112,8 +96,8 @@ function mostrarBoleto($id, $numero, $dueno, $responsable, $id_rifa) { ?>
 
               <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
               
-              <!-- Formulario con el id de la rifa a eliminar -->
-              <form action="" method="post">
+              <!-- Formulario con el id de la rifa a quitar dueño -->
+              <form action="funciones_boletos.php" method="post">
                 <input name="quitarDuenoBoletoId" type="hidden" value="<?php echo $id; ?>">
                 <input name="verBoletosRifaId" type="hidden" value="<?php echo $id_rifa; ?>">
                 <button type="submit" class="btn btn-danger">Si</button>
@@ -123,6 +107,33 @@ function mostrarBoleto($id, $numero, $dueno, $responsable, $id_rifa) { ?>
           </div>
         </div>
       </div>
+
+    <!-- Modal Asignar dueño -->
+    <div class="modal fade" id="asignarDue" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Asginar dueño</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="asignarDueno" action="funciones_boletos.php" method="post">
+                <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Nombre del dueño:</label>
+                    <input type="text" class="form-control" name="asignarDuenoNombre" placeholder="Martin" required>
+                    <input name="asignarDuenoBoletoId" type="hidden" value="<?php echo $id; ?>">
+                </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="submmit" class="btn btn-primary" form="asignarDueno">Asignar</button>
+            </div>
+            </div>
+        </div>
+        </div>
 
     <!-- Modal Quitar responsable -->
     <div class="modal fade" id="quitarResponsable" tabindex="-1">
@@ -138,8 +149,8 @@ function mostrarBoleto($id, $numero, $dueno, $responsable, $id_rifa) { ?>
 
               <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
               
-              <!-- Formulario con el id de la rifa a eliminar -->
-              <form action="" method="post">
+              <!-- Formulario con el id de la rifa a quitar responsable -->
+              <form action="funciones_boletos.php" method="post">
                 <input name="quitarResponsableBoletoId" type="hidden" value="<?php echo $id; ?>">
                 <input name="verBoletosRifaId" type="hidden" value="<?php echo $id_rifa; ?>">
                 <button type="submit" class="btn btn-danger">Si</button>
@@ -148,6 +159,33 @@ function mostrarBoleto($id, $numero, $dueno, $responsable, $id_rifa) { ?>
             </div>
           </div>
         </div>
+      </div>
+        
+      <!-- Modal Asignar responsable -->
+      <div class="modal fade" id="asignarRes" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Asginar responsable</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+              <form id="asignarResponsable" action="funciones_boletos.php" method="post">
+              <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">Nombre del responsable:</label>
+                  <input type="text" class="form-control" name="asignarResponsableNombre" placeholder="Mariana" required>
+                  <input name="asignarResponsableBoletoId" type="hidden" value="<?php echo $id; ?>">
+              </div>
+              </form>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+              <button type="submmit" class="btn btn-primary" form="asignarResponsable">Asignar</button>
+          </div>
+          </div>
+      </div>
       </div>
 </tr>
 

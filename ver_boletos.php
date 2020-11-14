@@ -20,10 +20,6 @@ require 'src/getters.php';
 require 'src/validaciones.php';
 
 require 'public/gui/listar_boletos.php';
-
-comprobarQuitarDueno();
-comprobarQuitarResponsable();
-
 ?>
 
 <!DOCTYPE html>

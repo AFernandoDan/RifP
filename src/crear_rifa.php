@@ -1,7 +1,7 @@
 <?php
 
-require_once '../RifP/bootstrap.php';
-
+ require_once '../RifP/bootstrap.php';
+ 
 //clases
 
 use Entity\Rifa as Rifa;
