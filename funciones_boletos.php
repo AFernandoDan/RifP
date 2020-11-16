@@ -24,14 +24,16 @@ require 'public/gui/listar_boletos.php';
 if (isset($_POST["quitarDuenoBoletoId"])) {
     $id_boleto = $_POST["quitarDuenoBoletoId"];
     $boleto = getBoletoPorId($id_boleto);
-    $boleto->quitarDueno();
+    echo $boleto->quitarDueno();
+    
     echo"<script> setTimeout(window.history.go(-1),2000); </script>";
 }
 
 if (isset($_POST["quitarResponsableBoletoId"])) {
     $id_boleto = $_POST["quitarResponsableBoletoId"];
     $boleto = getBoletoPorId($id_boleto);
-    $boleto->quitarResponsable();
+    echo $boleto->quitarResponsable();
+
     echo"<script> setTimeout(window.history.go(-1),2000); </script>";
 }
 
@@ -41,7 +43,7 @@ if (isset($_POST["asignarResponsableNombre"]) && isset($_POST["asignarResponsabl
     $id_boleto = $_POST["asignarResponsableBoletoId"];
     $boleto = getBoletoPorId($id_boleto);
 
-    $boleto->asignarResponsable($nombre);
+    echo $boleto->asignarResponsable($nombre);
 
     echo"<script> setTimeout(window.history.go(-1),2000); </script>";
 }
@@ -52,7 +54,7 @@ if (isset($_POST["asignarDuenoNombre"]) && isset($_POST["asignarDuenoBoletoId"])
     $id_boleto = $_POST["asignarDuenoBoletoId"];
     $boleto = getBoletoPorId($id_boleto);
 
-    $boleto->asignarDueno($nombre);
+    echo $boleto->asignarDueno($nombre);
 
     echo"<script> setTimeout(window.history.go(-1),2000); </script>";
 }

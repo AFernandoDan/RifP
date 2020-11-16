@@ -21,10 +21,6 @@ require 'src/validaciones.php';
 
 require 'public/gui/listar_rifas.php';
 
-comprobarSortear();
-comprobarEliminar();
-comprobarCrear();
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,7 +50,7 @@ comprobarCrear();
 
     <!-- Formulario para crear rifa -->
     <div style="padding-left: 12px;">
-      <form action="" method="post">
+      <form action="funciones_rifas.php" method="post">
         <div class="form-row align-items-center">
           <div class="col-sm-3 my-1">
             <label>Nombre de la rifa</label>

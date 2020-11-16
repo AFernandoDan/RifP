@@ -1,34 +1,5 @@
 <?php
 
-function comprobarSortear() {
-  if (isset($_POST["sortearRifaId"])) {
-
-      $id_rifa = $_POST["sortearRifaId"];
-      getRifaPorId($id_rifa)->sortear();
-
-  }
-}
-
-function comprobarEliminar() {
-    if (isset($_POST["eliminarRifaId"])) {
-
-        $id_rifa = $_POST["eliminarRifaId"];
-        eliminarRifa($id_rifa);
-
-    }
-}
-
-function comprobarCrear() {
-  if (isset($_POST["crearRifaNombre"]) && isset($_POST["crearRifaCantidadBoletos"])) {
-
-    $nombre = $_POST["crearRifaNombre"];
-    $cantidad_boletos = $_POST["crearRifaCantidadBoletos"];
-
-    crearRifa($nombre, $cantidad_boletos);
-
-  }
-}
-
 function listarRifas() {
     $rifas = getRifas();
 
@@ -98,7 +69,7 @@ function mostrarRifa($nombre, $cantidad_boletos, $boleto_ganador, $id){ ?>
               <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
               
               <!-- Formulario con el id de la rifa a sortear -->
-              <form action="" method="post">
+              <form action="funciones_rifas.php" method="post">
               <input id="sortearRifaId" name="sortearRifaId" type="hidden" value="<?php echo $id; ?>">
                 <button type="submit" class="btn btn-warning">Si</button>
               </form>
@@ -123,7 +94,7 @@ function mostrarRifa($nombre, $cantidad_boletos, $boleto_ganador, $id){ ?>
               <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
               
               <!-- Formulario con el id de la rifa a eliminar -->
-              <form action="" method="post">
+              <form action="funciones_rifas.php" method="post">
                 <input id="eliminarRifaId" name="eliminarRifaId" type="hidden" value="<?php echo $id; ?>">
                 <button type="submit" class="btn btn-danger">Si</button>
               </form>
