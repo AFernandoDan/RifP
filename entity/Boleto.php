@@ -80,13 +80,21 @@ class Boleto {
     function quitarResponsable() {
 
         if ($this->getIdRifa()->estaSorteada()) {
-            echo "No se puede modificar el boleto porque pertenece a una rifa ya sorteada";
-            return null;
+            return "No se puede modificar el boleto porque pertenece a una rifa ya sorteada";
         }
 
         $estado_dueno = $this->estado_dueno;
 
         $estado_responsable = $this->getEstadoResponsable();
+
+        if ($estado_responsable == false) {
+            return "El boleto no tiene un responsable asignado";
+
+        }
+
+        $this->setResponsable(null);
+
+        $GLOBALS['entityManager']->flush();
 
         if ($estado_dueno == true) {
             $this->setEstadoDueno(false);
@@ -96,13 +104,7 @@ class Boleto {
 
         }
 
-        if ($estado_responsable == true) {
-
-            $this->setResponsable(null);
-
-            $GLOBALS['entityManager']->flush();
-
-        }
+        return "Se quito el responsable del boleto ".$this->getNumero();
 
     }
 
@@ -110,8 +112,8 @@ class Boleto {
     function asignarDueno($nombre_dueno) {
 
         if ($this->getIdRifa()->estaSorteada()) {
-            echo "No se puede modificar el boleto porque pertenece a una rifa ya sorteada";
-            return null;
+            
+            return "No se puede modificar el boleto porque pertenece a una rifa ya sorteada";
         }
 
         $validacion_nombre = validarNombre($nombre_dueno);
@@ -124,37 +126,39 @@ class Boleto {
 
         $estado_dueno = $this->estado_dueno;
     
-        if ($estado_responsable == true) {
-
-            if ($estado_dueno == false) {
-                $this->setEstadoDueno(true);
-            }
-
-            $this->setDueno($nombre_dueno);
-            $GLOBALS['entityManager']->flush();
-
+        if ($estado_responsable == false) {
+            return "El boleto no tiene un responsable asignado, se debe asignar uno antes de asignar un dueño";
         }
+
+        if ($estado_dueno == false) {
+            $this->setEstadoDueno(true);
+        }
+
+        $this->setDueno($nombre_dueno);
+        $GLOBALS['entityManager']->flush();
+
+        return "Se le ha asignado el dueño ".$nombre_dueno." al boleto ".$this->getNumero();
     
     }
 
     function quitarDueno() {
 
         if ($this->getIdRifa()->estaSorteada()) {
-            echo "No se puede modificar el boleto porque pertenece a una rifa ya sorteada";
-            return null;
+            return "No se puede modificar el boleto porque pertenece a una rifa ya sorteada";
         }
 
         $estado_dueno = $this->estado_dueno;
     
-        if ($estado_dueno == true) {
-
-            $this->setEstadoDueno(false);
-            $this->setDueno(null);
+        if ($estado_dueno == false) {
+            return "El boleto no tiene ningun dueño asignado";
 
         }
 
-        $GLOBALS['entityManager']->flush();
+        $this->setEstadoDueno(false);
+        $this->setDueno(null);
 
+        $GLOBALS['entityManager']->flush();
+        return "Se quito el dueño al boleto ".$this->getNumero();
     }
 
     /**

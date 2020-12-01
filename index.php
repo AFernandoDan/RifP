@@ -54,11 +54,12 @@ require 'public/gui/listar_rifas.php';
         <div class="form-row align-items-center">
           <div class="col-sm-3 my-1">
             <label>Nombre de la rifa</label>
-            <input type="text" class="form-control" id="crearRifaNombre" name="crearRifaNombre" placeholder="Rifa 2020" required>
+            <input type="text" class="form-control" id="crearRifaNombre" name="crearRifaNombre" placeholder="Rifa 2020" required pattern="[A-Za-z0-9]{4,80}"
+           title="Letras y números. Tamaño mínimo: 4. Tamaño máximo: 80">
           </div>
           <div class="col-sm-3 my-1">
             <label>Cantidad de boletos</label>
-            <input type="number" min="1" max="300" class="form-control" id="crearRifaCantidadBoletos" name="crearRifaCantidadBoletos" placeholder="1" required>
+            <input type="number" min="1" max="299" class="form-control" id="crearRifaCantidadBoletos" name="crearRifaCantidadBoletos" placeholder="1" required>
           </div>
           <div class="col-auto my-1" style="padding-top: 31px;">
             <button type="submit" class="btn btn-success">Crear</button>

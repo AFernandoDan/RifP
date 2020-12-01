@@ -45,7 +45,7 @@ function validarNumero($numero){
         $numero = intval($numero);
     }
     
-    if ($numero >= 300) {
+    if ($numero >= 299) {
     	$error = "El numero de boletos debe ser menor o igual a 300";
     	return $error;
     }

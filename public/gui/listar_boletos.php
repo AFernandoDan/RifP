@@ -122,7 +122,8 @@ function mostrarBoleto($id, $numero, $dueno, $responsable, $id_rifa) { ?>
                 <form id="asignarDueno" action="funciones_boletos.php" method="post">
                 <div class="form-group">
                     <label for="recipient-name" class="col-form-label">Nombre del dueño:</label>
-                    <input type="text" class="form-control" name="asignarDuenoNombre" placeholder="Martin" required>
+                    <input type="text" class="form-control" name="asignarDuenoNombre" placeholder="Martin" required pattern="[A-Za-z0-9]{4,80}"
+           title="Letras y números. Tamaño mínimo: 4. Tamaño máximo: 80">
                     <input name="asignarDuenoBoletoId" type="hidden" value="<?php echo $id; ?>">
                 </div>
                 </form>
@@ -175,7 +176,8 @@ function mostrarBoleto($id, $numero, $dueno, $responsable, $id_rifa) { ?>
               <form id="asignarResponsable" action="funciones_boletos.php" method="post">
               <div class="form-group">
                   <label for="recipient-name" class="col-form-label">Nombre del responsable:</label>
-                  <input type="text" class="form-control" name="asignarResponsableNombre" placeholder="Mariana" required>
+                  <input type="text" class="form-control" name="asignarResponsableNombre" placeholder="Mariana" required pattern="[A-Za-z0-9]{4,80}"
+           title="Letras y números. Tamaño mínimo: 4. Tamaño máximo: 80">
                   <input name="asignarResponsableBoletoId" type="hidden" value="<?php echo $id; ?>">
               </div>
               </form>
