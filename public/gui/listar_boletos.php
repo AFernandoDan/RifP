@@ -61,29 +61,29 @@ function mostrarBoleto($id, $numero, $dueno, $responsable, $id_rifa) { ?>
         <!-- Botones: Quitar dueño, Asignar dueño, Quitar Responsable, Asignar responsable -->
 
         <!-- Quitar dueño -->
-        <button type="submit" class="btn btn-secondary" data-toggle="modal" data-target="#quitarDueno">
+        <button type="submit" class="btn btn-secondary" data-toggle="modal" data-target="#quitarDueno<?php echo $id; ?>">
           Quitar Dueño
         </button>
 
         <!-- Asignar dueño -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#asignarDue">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#asignarDue<?php echo $id; ?>">
             Asignar dueño
         </button>
               
         <!-- Quitar responsable -->
-        <button type="submit" class="btn btn-secondary" data-toggle="modal" data-target="#quitarResponsable">
+        <button type="submit" class="btn btn-secondary" data-toggle="modal" data-target="#quitarResponsable<?php echo $id; ?>">
           Quitar Responsable
         </button>
 
         <!-- Asignar responsable -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#asignarRes">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#asignarRes<?php echo $id; ?>">
             Asignar responsable
         </button>
 
     </td>
 
     <!-- Modal Quitar dueño -->
-    <div class="modal fade" id="quitarDueno" tabindex="-1">
+    <div class="modal fade" id="quitarDueno<?php echo $id; ?>" tabindex="-1">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -109,7 +109,7 @@ function mostrarBoleto($id, $numero, $dueno, $responsable, $id_rifa) { ?>
       </div>
 
     <!-- Modal Asignar dueño -->
-    <div class="modal fade" id="asignarDue" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="asignarDue<?php echo $id; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             <div class="modal-header">
@@ -119,7 +119,7 @@ function mostrarBoleto($id, $numero, $dueno, $responsable, $id_rifa) { ?>
                 </button>
             </div>
             <div class="modal-body">
-                <form id="asignarDueno" action="funciones_boletos.php" method="post">
+                <form id="asignarDueno<?php echo $id; ?>" action="funciones_boletos.php" method="post">
                 <div class="form-group">
                     <label for="recipient-name" class="col-form-label">Nombre del dueño:</label>
                     <input type="text" class="form-control" name="asignarDuenoNombre" placeholder="Martin" required pattern="[A-Za-z0-9]{4,80}"
@@ -130,14 +130,14 @@ function mostrarBoleto($id, $numero, $dueno, $responsable, $id_rifa) { ?>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="submmit" class="btn btn-primary" form="asignarDueno">Asignar</button>
+                <button type="submmit" class="btn btn-primary" form="asignarDueno<?php echo $id; ?>">Asignar</button>
             </div>
             </div>
         </div>
         </div>
 
     <!-- Modal Quitar responsable -->
-    <div class="modal fade" id="quitarResponsable" tabindex="-1">
+    <div class="modal fade" id="quitarResponsable<?php echo $id; ?>" tabindex="-1">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -163,7 +163,7 @@ function mostrarBoleto($id, $numero, $dueno, $responsable, $id_rifa) { ?>
       </div>
         
       <!-- Modal Asignar responsable -->
-      <div class="modal fade" id="asignarRes" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade" id="asignarRes<?php echo $id; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
           <div class="modal-content">
           <div class="modal-header">
@@ -173,7 +173,7 @@ function mostrarBoleto($id, $numero, $dueno, $responsable, $id_rifa) { ?>
               </button>
           </div>
           <div class="modal-body">
-              <form id="asignarResponsable" action="funciones_boletos.php" method="post">
+              <form id="asignarResponsable<?php echo $id; ?>" action="funciones_boletos.php" method="post">
               <div class="form-group">
                   <label for="recipient-name" class="col-form-label">Nombre del responsable:</label>
                   <input type="text" class="form-control" name="asignarResponsableNombre" placeholder="Mariana" required pattern="[A-Za-z0-9]{4,80}"
@@ -184,7 +184,7 @@ function mostrarBoleto($id, $numero, $dueno, $responsable, $id_rifa) { ?>
           </div>
           <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-              <button type="submmit" class="btn btn-primary" form="asignarResponsable">Asignar</button>
+              <button type="submmit" class="btn btn-primary" form="asignarResponsable<?php echo $id; ?>">Asignar</button>
           </div>
           </div>
       </div>

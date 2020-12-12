@@ -11,6 +11,7 @@ function listarRifas() {
         $boleto_ganador = $rifa->getBoletoGanador();
 
         mostrarRifa($nombre, $cantidad_boletos, $boleto_ganador, $id);
+
     }
 }
 
@@ -37,17 +38,17 @@ function mostrarRifa($nombre, $cantidad_boletos, $boleto_ganador, $id){ ?>
     <td>
 
         <!-- Botones de eliminar, sortear y ver boletos -->
-        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#eliminar" >
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#eliminar<?php echo $id; ?>" >
             Eliminar
         </button>
-        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#sortear" >
+        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#sortear<?php echo $id; ?>" >
             Sortear
         </button>
-        <button type="submit" form="FormVerBoletos" class="btn btn-primary">
+        <button type="submit" form="FormVerBoletos<?php echo $id; ?>" class="btn btn-primary">
             Ver boletos
         </button>
 
-        <form action="ver_boletos.php" id="FormVerBoletos" method="post">
+        <form action="ver_boletos.php" id="FormVerBoletos<?php echo $id; ?>" method="post">
           <input name="verBoletosRifaId" type="hidden" value="<?php echo $id; ?>">
         </form>
 
@@ -55,7 +56,7 @@ function mostrarRifa($nombre, $cantidad_boletos, $boleto_ganador, $id){ ?>
  </tr>
 
        <!-- Modal Sortear -->
-       <div class="modal fade" id="sortear" tabindex="-1">
+       <div class="modal fade" id="sortear<?php echo $id; ?>" tabindex="-1">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -80,7 +81,7 @@ function mostrarRifa($nombre, $cantidad_boletos, $boleto_ganador, $id){ ?>
       </div>
 
       <!-- Modal Eliminar -->
-      <div class="modal fade" id="eliminar" tabindex="-1">
+      <div class="modal fade" id="eliminar<?php echo $id; ?>" tabindex="-1">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
