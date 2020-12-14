@@ -42,7 +42,7 @@ require 'public/gui/listar_rifas.php';
 
     <!-- Barra superior con logo y nombre de la aplicación -->
     <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="index">
           <img src="public/img/test.png" width="30" height="30" class="d-inline-block align-top" alt="Logo de RifP">
           RifP
         </a>

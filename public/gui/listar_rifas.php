@@ -48,7 +48,7 @@ function mostrarRifa($nombre, $cantidad_boletos, $boleto_ganador, $id){ ?>
             Ver boletos
         </button>
 
-        <form action="ver_boletos.php" id="FormVerBoletos<?php echo $id; ?>" method="post">
+        <form action="ver_boletos" id="FormVerBoletos<?php echo $id; ?>" method="post">
           <input name="verBoletosRifaId" type="hidden" value="<?php echo $id; ?>">
         </form>
 

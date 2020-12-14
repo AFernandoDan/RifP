@@ -44,5 +44,5 @@ if (isset($_POST["crearRifaNombre"]) && isset($_POST["crearRifaCantidadBoletos"]
   
 }
 
-header('Location: index.php');
+header('Location: index');
 ?>
