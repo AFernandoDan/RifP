@@ -1,6 +1,6 @@
 <?php
 
-//EntityManager y conexion a base de datos
+//EntityManager y conexion a base de datos *
 require_once '../RifP/bootstrap.php';
 
 require_once '../RifP/entity/Rifa.php';
